@@ -19,3 +19,5 @@ projectile-bookmarks.eld
 session*
 .cask
 tramp
+current_config.org
+personal/*.el

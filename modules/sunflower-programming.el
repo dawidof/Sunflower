@@ -62,16 +62,12 @@ This functions should be added to the hooks of major modes for programming."
          '(((lambda (&rest _ignored)
               (crux-smart-open-line-above)) "RET")))
 
-;; enlist a more liberal guru
-(setq guru-warn-only t)
 
 (defun sunflower-prog-mode-defaults ()
   "Default coding hook, useful with any programming language."
   (when (and (executable-find ispell-program-name)
              sunflower-flyspell)
     (flyspell-prog-mode))
-  (when sunflower-guru
-    (guru-mode +1))
   (smartparens-mode +1)
   (sunflower-enable-whitespace)
   (sunflower-local-comment-auto-fill)

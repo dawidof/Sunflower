@@ -59,7 +59,6 @@
     beacon
     browse-kill-ring
     dash
-    discover-my-major
     diff-hl
     diminish
     easy-kill
@@ -73,18 +72,22 @@
     gitignore-mode
     god-mode
     grizzl
-    guru-mode
+    hlinum
+    hydra
     imenu-anywhere
     ov
     projectile
     magit
-    monokai-alt-theme
+    ;monokai-alt-theme
     move-text
     operate-on-number
+    rainbow-delimiters
+    rainbow-mode
     server
     smart-mode-line
     smartparens
     smartrep
+    try
     undo-tree
     volatile-highlights
     which-key

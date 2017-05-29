@@ -62,7 +62,8 @@ Windows external keyboard from time to time."
       (setq mac-option-modifier 'meta)
       (message "Command is now bound to SUPER and Option is bound to META."))))
 
-(sunflower-swap-meta-and-super)
+(unless (eq mac-command-modifier 'super)
+ (sunflower-swap-meta-and-super))
 ; (define-key sunflower-mode-map (kbd "C-c w") 'sunflower-swap-meta-and-super)
 ; (define-key sunflower-mode-map (kbd "s-/") 'hippie-expand)
 

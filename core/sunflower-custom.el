@@ -46,5 +46,17 @@
   :group 'sunflower)
 
 
+(defcustom sunflower-flyspell t
+  "Non-nil values enable Sunflower's flyspell support."
+  :type 'boolean
+  :group 'sunflower)
+
+(defcustom sunflower-fullscreen t
+  "Non-nil values enable Sunflower's fullscreen."
+  :type 'boolean
+  :group 'sunflower)
+
+
+
 (provide 'sunflower-custom)
 ;;; sunflower-custom.el ends here

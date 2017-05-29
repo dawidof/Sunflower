@@ -54,6 +54,8 @@
 (add-to-list 'auto-mode-alist '("\\.podspec\\'" . ruby-mode))
 (add-to-list 'auto-mode-alist '("Puppetfile\\'" . ruby-mode))
 (add-to-list 'auto-mode-alist '("Berksfile\\'" . ruby-mode))
+(add-to-list 'auto-mode-alist '("\\.irbrc\\'" . ruby-mode))
+(add-to-list 'auto-mode-alist '("\\.pryrc\\'" . ruby-mode))
 (add-to-list 'auto-mode-alist '("Appraisals\\'" . ruby-mode))
 
 ;; We never want to edit Rubinius bytecode
