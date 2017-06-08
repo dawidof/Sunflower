@@ -50,6 +50,7 @@
 
 ;; set package-user-dir to be relative to Sunflower install path
 (setq package-user-dir (expand-file-name "elpa" sunflower-dir))
+
 (package-initialize)
 
 (defvar sunflower-packages
@@ -89,6 +90,7 @@
     smartrep
     try
     undo-tree
+    use-package
     volatile-highlights
     which-key
     zop-to-char)

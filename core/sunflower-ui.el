@@ -40,6 +40,7 @@
   (tool-bar-mode -1))
 
 (menu-bar-mode -1)
+(scroll-bar-mode -1)
 
 ;; the blinking cursor is nothing, but an annoyance
 (blink-cursor-mode -1)
@@ -48,7 +49,10 @@
 (setq ring-bell-function 'ignore)
 
 ;; disable startup screen
-(setq inhibit-startup-screen t)
+(setq inhibit-startup-message t
+      initial-scratch-message ""
+      initial-major-mode 'fundamental-mode
+      inhibit-splash-screen t)
 
 ;; nice scrolling
 (setq scroll-margin 0

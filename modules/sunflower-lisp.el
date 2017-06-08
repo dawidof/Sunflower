@@ -46,14 +46,14 @@
 
 ;; a great lisp coding hook
 (defun sunflower-lisp-coding-defaults ()
-  (smartparens-strict-mode +1)
+  ;(smartparens-strict-mode +1)
   (rainbow-delimiters-mode +1))
 
 (setq sunflower-lisp-coding-hook 'sunflower-lisp-coding-defaults)
 
 ;; interactive modes don't need whitespace checks
 (defun sunflower-interactive-lisp-coding-defaults ()
-  (smartparens-strict-mode +1)
+  ;(smartparens-strict-mode +1)
   (rainbow-delimiters-mode +1)
   (whitespace-mode -1))
 

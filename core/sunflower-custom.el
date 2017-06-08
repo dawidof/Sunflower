@@ -56,6 +56,10 @@
   :type 'boolean
   :group 'sunflower)
 
+(defcustom sunflower-trim-spaces t
+  "Non-nil values enable Sunflower's fullscreen."
+  :type 'boolean
+  :group 'sunflower)
 
 
 (provide 'sunflower-custom)

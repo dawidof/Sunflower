@@ -43,7 +43,7 @@
 ;; personal indentation width, while maintaining the style (and
 ;; meaning) of any files you load.
 (setq-default indent-tabs-mode nil)   ;; don't use tabs to indent
-(setq-default tab-width 4)            ;; but maintain correct appearance
+(setq-default tab-width 2)            ;; but maintain correct appearance
 
 ;; Newline at end of file
 (setq require-final-newline t)
@@ -125,6 +125,11 @@
       ;; keep the home clean
       savehist-file (expand-file-name "savehist" sunflower-savefile-dir))
 (savehist-mode +1)
+
+
+;; make isearch treat space dash underscore newline as same
+(setq search-whitespace-regexp "[-_ \n]")
+
 
 ;; save recent files
 (require 'recentf)
@@ -296,8 +301,84 @@ The body of the advice is in BODY."
 
 ;; whitespace-mode config
 (require 'whitespace)
-(setq whitespace-line-column 80) ;; limit line length
+(setq whitespace-line-column 120) ;; limit line length
 (setq whitespace-style '(face tabs empty trailing lines-tail))
+
+(setq search-whitespace-regexp ".*?")
+
+;; Save history for some promts
+
+(savehist-mode)
+
+
+;; Clean whitespaces on save
+(add-hook 'before-save-hook 'whitespace-cleanup)
+
+;; Tab complete
+
+(setq tab-always-indent 'complete)
+
+;; Display empty lines
+
+(setq-default indicate-empty-lines t)
+(when (not indicate-empty-lines)
+  (toggle-indicate-empty-lines))
+
+
+;; The improvement [[https://github.com/lewang/ws-butler][this package]] provides over the built-in =delete-trailing-whitespace= is that this deletes whitespace from changes that only /I/ made.
+(use-package ws-butler
+  :ensure t
+  :diminish ws-butler-mode
+  :config
+  (ws-butler-global-mode))
+
+
+;; Emmet
+
+(use-package emmet-mode
+  :ensure t
+  :commands emmet-mode
+  :config
+  (add-hook 'html-mode-hook 'emmet-mode)
+  (add-hook 'css-mode-hook 'emmet-mode))
+
+
+;; Smex
+
+(use-package smex
+  :ensure t
+  :config
+  (smex-initialize))
+
+;; Neotree
+
+  (use-package neotree
+    :ensure t
+    :init
+    (setq neo-smart-open t))
+
+
+;; This is a fairly simple [[https://github.com/xuchunyang/region-state.el][package]] that provides information about the active region.
+
+(use-package region-state
+  :ensure t
+  :config
+  (region-state-mode))
+
+;; Indentation
+
+(setq tab-width 2
+      default-tab-width 2
+      indent-tabs-mode nil)
+(setq show-paren-style 'expression) ;; выделить цветом выражения между {},[],()
+(setq-default indent-tabs-mode nil)
+;; Electric-modes settings
+(electric-pair-mode    1) ;; автозакрытие {},[],() с переводом курсора внутрь скобок
+(electric-indent-mode 1) ;; отключить индентацию  electric-indent-mod'ом (default in Emacs-24.4)
+
+;; Transient mark
+
+(transient-mark-mode 1)
 
 ;; saner regex syntax
 (require 're-builder)

@@ -34,7 +34,6 @@
 ;;; Code:
 
 (require 'sunflower-lisp)
-(require 'crux)
 
 (sunflower-require-packages '(elisp-slime-nav rainbow-mode))
 
@@ -48,12 +47,6 @@
                 (emacs-lisp-byte-compile)))
             nil
             t))
-
-(defun sunflower-visit-ielm ()
-  "Switch to default `ielm' buffer.
-Start `ielm' if it's not already running."
-  (interactive)
-  (crux-start-or-switch-to 'ielm "*ielm*"))
 
 (define-key emacs-lisp-mode-map (kbd "C-c C-z") 'sunflower-visit-ielm)
 (define-key emacs-lisp-mode-map (kbd "C-c C-c") 'eval-defun)
@@ -87,10 +80,6 @@ Start `ielm' if it's not already running."
   (run-hooks 'sunflower-interactive-lisp-coding-hook)
   (eldoc-mode +1))
 
-(setq sunflower-ielm-mode-hook 'sunflower-ielm-mode-defaults)
-
-(add-hook 'ielm-mode-hook (lambda ()
-                            (run-hooks 'sunflower-ielm-mode-hook)))
 
 (eval-after-load "elisp-slime-nav"
   '(diminish 'elisp-slime-nav-mode))

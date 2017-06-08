@@ -34,7 +34,14 @@
 
 (require 'sunflower-programming)
 
-(sunflower-require-packages '(ruby-tools inf-ruby yari))
+(sunflower-require-packages '(
+                              inf-ruby
+                              seeing-is-believing
+                              ruby-tools
+                              ruby-test-mode
+                              rvm
+                              yari
+                              ))
 
 ;; Rake files are ruby, too, as are gemspecs, rackup files, and gemfiles.
 (add-to-list 'auto-mode-alist '("\\.rake\\'" . ruby-mode))
@@ -75,6 +82,19 @@
 
      (add-hook 'ruby-mode-hook (lambda ()
                                  (run-hooks 'sunflower-ruby-mode-hook)))))
+
+(rvm-use-default)
+
+(setq seeing-is-believing-prefix "C-.")
+(add-hook 'ruby-mode-hook 'seeing-is-believing)
+;(require 'seeing-is-believing)
+
+
+(autoload 'inf-ruby-minor-mode "inf-ruby" "Run an inferior Ruby process" t)
+(add-hook 'ruby-mode-hook 'inf-ruby-minor-mode)
+
+;(require 'ruby-test-mode)
+(add-hook 'ruby-mode-hook 'ruby-test-mode)
 
 (provide 'sunflower-ruby)
 ;;; sunflower-ruby.el ends here
