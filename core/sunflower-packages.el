@@ -197,6 +197,13 @@ PACKAGE is installed only if not already present.  The file is opened in MODE."
        (sunflower-auto-install extension package mode))))
  sunflower-auto-install-alist)
 
+
+(use-package exec-path-from-shell
+  :ensure t
+  :if (memq window-system '(mac ns x))
+  :config
+  (exec-path-from-shell-initialize))
+
 (provide 'sunflower-packages)
 ;; Local Variables:
 ;; byte-compile-warnings: (not cl-functions)

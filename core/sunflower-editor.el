@@ -207,7 +207,7 @@ The body of the advice is in BODY."
     (add-hook 'before-save-hook 'sunflower-cleanup nil t))
 
 (add-hook 'text-mode-hook 'sunflower-enable-flyspell)
-(add-hook 'text-mode-hook 'sunflower-enable-whitespace)
+;(add-hook 'text-mode-hook 'sunflower-enable-whitespace)
 
 ;; enable narrowing commands
 (put 'narrow-to-region 'disabled nil)
@@ -371,7 +371,9 @@ The body of the advice is in BODY."
       default-tab-width 2
       indent-tabs-mode nil)
 (setq show-paren-style 'expression) ;; выделить цветом выражения между {},[],()
-(setq-default indent-tabs-mode nil)
+(setq-default indent-tabs-mode nil
+              tab-width 2
+              require-final-newline nil)
 ;; Electric-modes settings
 (electric-pair-mode    1) ;; автозакрытие {},[],() с переводом курсора внутрь скобок
 (electric-indent-mode 1) ;; отключить индентацию  electric-indent-mod'ом (default in Emacs-24.4)

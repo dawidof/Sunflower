@@ -31,7 +31,7 @@
 ;; Boston, MA 02110-1301, USA.
 
 ;;; Code:
-(sunflower-require-packages '(flx-ido ido-ubiquitous smex))
+(sunflower-require-packages '(flx-ido ido-ubiquitous smex ido-vertical-mode))
 
 (require 'ido)
 (require 'ido-ubiquitous)
@@ -42,11 +42,19 @@
       ido-create-new-buffer 'always
       ido-use-filename-at-point 'guess
       ido-max-prospects 10
+      ido-everywhere t
       ido-save-directory-list-file (expand-file-name "ido.hist" sunflower-savefile-dir)
       ido-default-file-method 'selected-window
       ido-auto-merge-work-directories-length -1)
+
 (ido-mode +1)
 (ido-ubiquitous-mode +1)
+
+;; Vertical mode
+(setq ido-vertical-define-keys 'C-n-and-C-p-only
+      ido-vertical-show-count t)
+(ido-vertical-mode 1)
+(setq ido-use-faces t)
 
 ;;; smarter fuzzy matching for ido
 (flx-ido-mode +1)

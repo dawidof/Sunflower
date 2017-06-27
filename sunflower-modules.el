@@ -36,3 +36,5 @@
 (require 'sunflower-web) ;; Emacs mode for web templates
 (require 'sunflower-xml)
 (require 'sunflower-yaml)
+
+(require 'sunflower-outer-spaces) ; Remove and highlight redundant spaces
