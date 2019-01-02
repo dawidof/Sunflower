@@ -79,7 +79,7 @@
     ov
     projectile
     magit
-    ;monokai-alt-theme
+    monokai-alt-theme
     move-text
     operate-on-number
     rainbow-delimiters

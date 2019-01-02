@@ -35,7 +35,7 @@
 
 ;; On OS X Emacs doesn't use the shell PATH if it's not started from
 ;; the shell. Let's fix that:
-(sunflower-require-packages '(exec-path-from-shell vkill))
+;; (sunflower-require-packages '(exec-path-from-shell vkill))
 
 (require 'exec-path-from-shell)
 (exec-path-from-shell-initialize)
@@ -44,8 +44,8 @@
 (setq ns-function-modifier 'hyper)
 
 ;; proced-mode doesn't work on OS X so we use vkill instead
-(autoload 'vkill "vkill" nil t)
-(global-set-key (kbd "C-x p") 'vkill)
+;; (autoload 'vkill "vkill" nil t)
+;; (global-set-key (kbd "C-x p") 'vkill)
 
 (defun sunflower-swap-meta-and-super ()
   "Swap the mapping of Meta and Super.
@@ -76,4 +76,3 @@ Windows external keyboard from time to time."
 
 (provide 'sunflower-osx)
 ;;; sunflower-osx.el ends here
-
