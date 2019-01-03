@@ -31,10 +31,10 @@
 ;; Boston, MA 02110-1301, USA.
 
 ;;; Code:
-(sunflower-require-packages '(flx-ido ido-ubiquitous smex ido-vertical-mode))
+(sunflower-require-packages '(flx-ido ido-completing-read+ smex ido-vertical-mode))
 
 (require 'ido)
-(require 'ido-ubiquitous)
+(require 'ido-completing-read+)
 (require 'flx-ido)
 
 (setq ido-enable-prefix nil
@@ -48,7 +48,8 @@
       ido-auto-merge-work-directories-length -1)
 
 (ido-mode +1)
-(ido-ubiquitous-mode +1)
+(ido-everywhere 1)
+(ido-ubiquitous-mode 1)
 
 ;; Vertical mode
 (setq ido-vertical-define-keys 'C-n-and-C-p-only
